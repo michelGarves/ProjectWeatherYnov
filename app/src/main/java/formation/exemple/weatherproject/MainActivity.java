@@ -1,81 +1,112 @@
 package formation.exemple.weatherproject;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
-import android.content.Context;
+import android.Manifest;
 import android.content.SharedPreferences;
-import android.os.Build;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-import com.squareup.picasso.Picasso;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.Spinner;
+import android.widget.Toast;
+
 import org.json.JSONException;
-import org.json.JSONObject;
 
+import java.io.IOException;
+import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-
-    private static int MY_PERMISSIONS_LOCATION = -1 ;
-
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
+    ArrayList<String> cityNames = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.no_locate);
+       /*switch(checkPermissionLocation()){
+            case 1 :
+                setContentView(R.layout.meteo);
+                break;
 
-        String url = "https://geo.api.gouv.fr/communes";
-        RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
+            case 0 :
+                setContentView(R.layout.no_locate);
+                break;
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
+            default:
 
-                        try {
-                            JSONObject jObj = new JSONObject(response);
+        }*/
 
-                            JSONObject jObjCurrent = jObj.getJSONObject("nom");
-                            String tmp = jObjCurrent.getString("tmp");
-                            String condition = jObjCurrent.getString("condition");
-                            String icon = jObjCurrent.getString("icon");
-
-                            textView.setText("Condition :" + condition);
-                            textView2.setText("Température :" + tmp);
-                            ImageView imageView = findViewById(R.id.imageView);
-                            Picasso.get().load(icon).into(imageView);
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
+        cityNames = FirebaseData.getCities();
 
 
+        Spinner spinner = findViewById(R.id.spinnerCityHome);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, cityNames);
+
+
+        spinner.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+        spinner.setOnItemSelectedListener(this);
+        Button confirmCity = findViewById(R.id.confirmCity);
+        confirmCity.setOnClickListener(this);
     }
-    public void onClick(View v) {
-
-    };
 
     @Override
     protected void onDestroy() {
-        EditText editText = findViewById(R.id.editText);
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        Spinner spinner = findViewById(R.id.spinnerCity);
+        String city = spinner.getSelectedItem().toString();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = prefs.edit();
-        editor.putString("savedCity", editText. );
+        editor.putString("savedCity", city );
         editor.commit();
 
 
         super.onDestroy();
     }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        String selectedCity = parent.getItemAtPosition(3).toString();
+        Toast.makeText(MainActivity.this, selectedCity, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch(view.getId()){
+            case R.id.confirmCity:
+                /*Spinner spinner = findViewById(R.id.spinnerCityHome);
+                String selectedCity = spinner.getSelectedItem().toString();
+                Toast.makeText(MainActivity.this, selectedCity , Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Button clicked" , Toast.LENGTH_SHORT).show();
+                */
+                Log.i("City 1", cityNames.get(1));
+                break;
+        }
+    }
+
+    public int checkPermissionLocation(){
+        int result = -1;
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
+                result = 1;
+        } else {
+            result = 0;
+        }
+        return result;
+    }
+
+    public void askPermission(){
+
+    }
+
+
 }
+

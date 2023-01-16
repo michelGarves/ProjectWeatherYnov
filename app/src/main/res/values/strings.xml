@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">WeatherProject</string>
+
+
+    <string-array name="cities">
+
+    </string-array>
 </resources>
