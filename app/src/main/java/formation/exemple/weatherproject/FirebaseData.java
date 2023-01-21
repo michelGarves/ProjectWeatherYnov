@@ -29,7 +29,7 @@ public class FirebaseData {
                        cities.add(city.getName());
                    }
                 } else {
-                    Log.d("ERR : ", task.getException().getMessage()); //Don't ignore potential errors!
+                    Log.d("ERR : ", task.getException().getMessage());
                 }
             }
         });

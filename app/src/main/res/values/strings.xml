@@ -3,6 +3,109 @@
 
 
     <string-array name="cities">
-
+        <item>Paris</item>
+        <item>Marseille</item>
+        <item>Lyon</item>
+        <item>Toulouse</item>
+        <item>Limoges</item>
+        <item>Nice</item>
+        <item>Nantes</item>
+        <item>Strasbourg</item>
+        <item>Montpellier</item>
+        <item>Bordeaux</item>
+        <item>Lille</item>
+        <item>Rennes</item>
+        <item>Reims</item>
+        <item>Saint-Etienne</item>
+        <item>Toulon</item>
+        <item>Grenoble</item>
+        <item>Dijon</item>
+        <item>Nîmes</item>
+        <item>Villeurbanne</item>
+        <item>Angers</item>
+        <item>Amiens</item>
+        <item>Ajaccio</item>
+        <item>Besançon</item>
+        <item>Orléans</item>
+        <item>Rouen</item>
+        <item>Mulhouse</item>
+        <item>Caen</item>
+        <item>Nancy</item>
+        <item>Saint-Nazaire</item>
+        <item>Perpignan</item>
+        <item>Metz</item>
+        <item>Tourcoing</item>
+        <item>Roubaix</item>
+        <item>Dunkerque</item>
+        <item>Poitiers</item>
+        <item>Boulogne-Billancourt</item>
+        <item>Fort-de-France</item>
+        <item>Valence</item>
+        <item>Aubervilliers</item>
+        <item>Champigny-sur-Marne</item>
+        <item>Vitry-sur-Seine</item>
+        <item>Colombes</item>
+        <item>Asnières-sur-Seine</item>
+        <item>Saint-Maur-des-Fossés</item>
+        <item>Argenteuil</item>
+        <item>Aulnay-sous-Bois</item>
+        <item>Rueil-Malmaison</item>
+        <item>Ivry-sur-Seine</item>
+        <item>Creteil</item>
+        <item>Villejuif</item>
+        <item>Neuilly-sur-Seine</item>
+        <item>Pantin</item>
+        <item>La Rochelle</item>
+        <item>Boulogne-sur Marne</item>
+        <item>Aix-les-Bains</item>
+        <item>Les Sables-d\'Olonne</item>
+        <item>Saint-Louis</item>
+        <item>Cagnes-sur-Mer</item>
+        <item>Saint-Dizier</item>
+        <item>Sète</item>
+        <item>Sarreguemines</item>
+        <item>Lorient</item>
+        <item>Châlons-en-Champagne</item>
+        <item>Aubagne</item>
+        <item>Plaisir</item>
+        <item>Draveil</item>
+        <item>Bourg-en-Bresse</item>
+        <item>Alfortville</item>
+        <item>Montauban</item>
+        <item>Thonon-les-Bains</item>
+        <item>Saint-Raphaël</item>
+        <item>Palaiseau</item>
+        <item>Le Port</item>
+        <item>Boulogne-sur-Mer</item>
+        <item>Saint-Denis</item>
+        <item>Arles</item>
+        <item>Drancy</item>
+        <item>Saint-Pierre</item>
+        <item>Vénissieux</item>
+        <item>Evry</item>
+        <item>Noisy-le-Grand</item>
+        <item>Issy-les-Moulineaux</item>
+        <item>Levallois-Perret</item>
+        <item>Antibes</item>
+        <item>Cannes</item>
+        <item>Saint-Quentin</item>
+        <item>Beziers</item>
+        <item>Colmar</item>
+        <item>Ales</item>
+        <item>Chambery</item>
+        <item>Belfort</item>
+        <item>Annecy</item>
+        <item>Calais</item>
+        <item>Tarbes</item>
+        <item>Cholet</item>
+        <item>Brive-la-Gaillarde</item>
+        <item>Auxerre</item>
+        <item>Aix-en-Provence</item>
+        <item>Clermont-Ferrand</item>
+        <item>Brest</item>
+        <item>Le Havre</item>
     </string-array>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="app_widget_description">This is an app widget description</string>
 </resources>
